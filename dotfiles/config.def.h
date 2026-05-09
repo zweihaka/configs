@@ -189,11 +189,6 @@ static const Key keys[] = {
 	/* modifier                  key                 function        argument */
 	{ MODKEY,                    XKB_KEY_d,          spawn,          {.v = wmenucmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
-        { 0,                         XKB_KEY_XF86AudioLowerVolume,  spawn,    {.v = (const char*[]){"wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "2%-", NULL}} },
-        { 0,                         XKB_KEY_XF86AudioRaiseVolume,  spawn,    {.v = (const char*[]){"wpctl", "set-volume", "-l", "1.2", "@DEFAULT_AUDIO_SINK@", "2%+", NULL}} },
-        { 0,                         XKB_KEY_XF86AudioMute,         spawn,    {.v = (const char*[]){"wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL}} },
-        { 0,                         XKB_KEY_XF86MonBrightnessUp,   spawn,    {.v = (const char*[]){"brightnessctl", "set", "+5%", NULL}} },
-        { 0,                         XKB_KEY_XF86MonBrightnessDown, spawn,    {.v = (const char*[]){"brightnessctl", "set", "5%-", NULL}} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
 	{ MODKEY,                    XKB_KEY_b,          togglebar,      {0} },
