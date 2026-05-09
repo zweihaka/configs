@@ -189,6 +189,8 @@ static const Key keys[] = {
 	/* modifier                  key                 function        argument */
 	{ MODKEY,                    XKB_KEY_d,          spawn,          {.v = wmenucmd} },
 	{ MODKEY,                    XKB_KEY_Return,     spawn,          {.v = termcmd} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,          spawn,          {.v = (const char*[]){"sh", "-c", "slurp > /tmp/slurp_out; cat /tmp/slurp_out | grim -g - /tmp/screenshot.png && cp /tmp/screenshot.png ~/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && wl-copy < /tmp/screenshot.png", NULL}} },
+        { 0,                         XKB_KEY_Print,      spawn,          {.v = (const char*[]){"sh", "-c", "grim ~/Screenshots/$(date +%Y-%m-%d_%H-%m-%s).png && grim - | wl-copy", NULL}} },
         { 0,                         XKB_KEY_XF86AudioLowerVolume,  spawn,    {.v = (const char*[]){"wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "2%-", NULL}} },
         { 0,                         XKB_KEY_XF86AudioRaiseVolume,  spawn,    {.v = (const char*[]){"wpctl", "set-volume", "-l", "1.2", "@DEFAULT_AUDIO_SINK@", "2%+", NULL}} },
         { 0,                         XKB_KEY_XF86AudioMute,         spawn,    {.v = (const char*[]){"wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL}} },
