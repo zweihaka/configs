@@ -1,4 +1,3 @@
-# Created by newuser for 5.9
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.zsh_history
