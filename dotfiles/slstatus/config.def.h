@@ -67,7 +67,9 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	{ load_avg, "%s ", NULL },
+	{ ram_perc, "%s%% ", NULL },
 	{ cpu_perc, "%s%% ", NULL },
+	{ disk_free, "%s ", "/" },
 	{ run_command, "%s ", "nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2" },
 	{ run_command, "%s ", "~/.local/bin/layout.sh" },
 	{ battery_state, "%s ", "BAT1" },

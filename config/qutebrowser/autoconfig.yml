@@ -24,6 +24,13 @@ settings:
     global: true
   completion.quick:
     global: true
+  editor.command:
+    global:
+    - nvim
+    - -f
+    - '{file}'
+    - -c
+    - normal {line}G{column0}l
   fonts.default_family:
     global:
     - Noto Sans CJK
