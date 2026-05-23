@@ -14,10 +14,10 @@ require('nvim-treesitter').setup {
   install_dir = vim.fn.stdpath('data') .. '/custom-treesitter',
 }
 
-require('nvim-treesitter').install {'c', 'python', 'bash', 'lua', 'yaml', 'dockerfile'}
+require('nvim-treesitter').install {'c', 'asm', 'python', 'bash', 'lua', 'yaml', 'dockerfile'}
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = {'c', 'python', 'lua', 'bash', 'lua', 'yaml', 'dockerfile'},
+  pattern = {'c', 'python', 'lua', 'bash', 'asm', 'lua', 'yaml', 'dockerfile'},
   callback = function()
     vim.treesitter.start()
 
@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-local servers = { 'clangd', 'pyright', 'bashls', 'dockerls' }
+local servers = { 'clangd', 'pyright', 'bashls', 'dockerls', 'asm_lsp' }
 for _, lsp in ipairs(servers) do
     vim.lsp.enable(lsp)
 end
@@ -41,6 +41,9 @@ vim.filetype.add({
     extension = {
         yml = 'yaml',
         yaml = 'yaml',
+	asm = 'asm',
+	s = 'asm',
+	S = 'asm',
     },
     filename = {
         ["docker-compose.yml"] = "yaml",
@@ -55,6 +58,20 @@ vim.keymap.set("n", "<leader>fp", ":Files<CR>") -- Fuzzy current project directo
 vim.keymap.set("n", "<leader>fh", ":Files~<CR>") -- Fuzzy home directory
 vim.keymap.set('n', '<leader>gp', ":Rg<CR>") -- ripgrep current project directory
 vim.keymap.set('n', '<leader>hp', ":Gitsigns preview_hunk<CR>")
+
+vim.keymap.set('i', '<Tab>', function()
+    if vim.fn.pumvisible() == 1 then
+        return '<C-n>'
+    end
+    return '<Tab>'
+end, { expr = true })
+
+vim.keymap.set('i', '<S-Tab>', function()
+    if vim.fn.pumvisible() == 1 then
+        return '<C-p>'
+    end
+    return '<S-Tab>'
+end, { expr = true })
 
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
@@ -74,3 +91,4 @@ vim.opt.completeopt = { 'menuone', 'noselect' }
 vim.o.pumheight = 10
 
 vim.api.nvim_set_hl(0, "Comment", { ctermfg = 8, italic = true })
+

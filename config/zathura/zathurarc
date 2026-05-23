@@ -1,0 +1,18 @@
+set recolor "true"
+set recolor-lightcolor "#1a1b26" 
+set recolor-darkcolor "#e2f0e2"  
+
+set default-bg "#1a1b26"
+set default-fg "#e2f0e2"
+set statusbar-bg "#1a1b26"
+set statusbar-fg "#e2f0e2"
+set inputbar-bg "#1a1b26"
+set inputbar-fg "#e2f0e2"
+set index-bg "#1a1b26"
+set index-fg "#e2f0e2"
+set index-active-bg "#32344a"    
+set index-active-fg "#e2f0e2"
+
+set font "Iosevka Medium 12"
+
+set selection-clipboard clipboard
