@@ -13,13 +13,11 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 export PATH="$HOME/.local/bin:$PATH"
 PROMPT='%F{2}%n@%m%f:%F{4}%~%f$ '
 
-#bitwarden unlocking
 bwu(){
 	export BW_SESSION=$(bw unlock --raw)
 	echo -n "$BW_SESSION" | keyctl padd user bw_session @u
 }
 
-#bitwarden adding items
 bwadd() {
     local name=$1
     local uri=$2
