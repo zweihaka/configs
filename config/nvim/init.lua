@@ -6,6 +6,8 @@ vim.pack.add{
     { src = 'https://github.com/lewis6991/gitsigns.nvim' },
 }
 
+vim.opt.guicursor = "i-r-cr:block"
+
 require('gitsigns').setup()
 
 require('nvim-autopairs').setup()

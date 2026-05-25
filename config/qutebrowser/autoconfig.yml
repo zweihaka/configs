@@ -16,6 +16,7 @@ settings:
   bindings.commands:
     global:
       normal:
+        <Alt+p>: spawn --userscript qute-bitwarden -d wmenu -p wmenu
         D: null
         J: tab-prev
         K: tab-next
