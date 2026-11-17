@@ -19,7 +19,7 @@ require('nvim-treesitter').setup {
 require('nvim-treesitter').install {'c', 'asm', 'python', 'bash', 'lua', 'yaml', 'dockerfile'}
 
 vim.api.nvim_create_autocmd('FileType', {
-  pattern = {'c', 'python', 'lua', 'bash', 'asm', 'lua', 'yaml', 'dockerfile'},
+  pattern = {'c', 'python', 'lua', 'bash', 'sh', 'asm', 'lua', 'yaml', 'dockerfile'},
   callback = function()
     vim.treesitter.start()
 
@@ -37,13 +37,6 @@ for _, lsp in ipairs(servers) do
     vim.lsp.enable(lsp)
 end
 
-vim.lsp.config('yamlls', {
-    default_config = {
-        filetypes = { 'yaml' },
-    }
-})
-vim.lsp.enable('yamlls')
-
 vim.filetype.add({
     extension = {
         yml = 'yaml',
@@ -51,11 +44,6 @@ vim.filetype.add({
 	asm = 'asm',
 	s = 'asm',
 	S = 'asm',
-    },
-    filename = {
-        ["docker-compose.yml"] = "yaml",
-        ["docker-compose.yaml"] = "yaml",
-        [".gitlab-ci.yml"] = "yaml",
     },
 })
 
